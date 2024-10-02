@@ -1,14 +1,25 @@
 //! # egui_custom_frame
 //! 
-//! A custom frame for egui
+//! Custom your egui client-side window frame.
+//! 
+//! # Example
+//! ```
+//! // Make sure your window has a transparent background with no decorations
+//! 
+//! # egui::__run_test_ctx(|ctx| {
+//! // In the update function
+//! egui_custom_frame::CustomFrame::default().show(ctx, |ui| {
+//!    ui.label("Hello World!");
+//! });
+//! # });
 
 use core::f32;
 
 use egui::{
-  CentralPanel, Color32, Id, InnerResponse, Margin, Pos2, Rect, Rounding, Sense, Shadow, Vec2
+  CentralPanel, Color32, Id, InnerResponse, Margin, Pos2, Rect, Rounding, Sense, Shadow, Stroke, Vec2
 };
 
-/// A frame that allows you to create custom its appearance and behavior
+/// A frame that allows you to custom its appearance and behavior
 ///
 /// # Example
 /// ```
@@ -70,9 +81,9 @@ impl CustomFrame {
     let shadow_width = if is_maximized { 0.0 } else { self.shadow.blur + self.shadow.spread };
 
     let panel_frame = egui::Frame {
-        fill: ctx.style().visuals.window_fill(),
+        fill: ctx.style().visuals.panel_fill,
         rounding: if is_maximized { Rounding::ZERO } else { self.rounding },
-        stroke: ctx.style().visuals.widgets.noninteractive.fg_stroke,
+        stroke: Stroke::NONE,
         outer_margin: shadow_width.into(), // so the shadow is within the bounds
         inner_margin: self.inner_margin,
         shadow: if is_maximized { Shadow::NONE } else { self.shadow },

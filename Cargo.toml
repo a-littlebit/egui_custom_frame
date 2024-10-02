@@ -1,8 +1,8 @@
 [package]
 name = "egui_custom_frame"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
-description = "Custom your egui window frame."
+description = "Custom your egui client-side window frame."
 license = "MIT OR Apache-2.0"
 homepage = "https://github.com/a-littlebit/egui_custom_frame"
 repository = "https://github.com/a-littlebit/egui_custom_frame"

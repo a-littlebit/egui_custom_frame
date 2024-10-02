@@ -1,5 +1,5 @@
 # egui_custom_frame
-Custom your egui window frame.
+Custom your egui client-side window frame.
 
 ## Example Usage
 ```rust
